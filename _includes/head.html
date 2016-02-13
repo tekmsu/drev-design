@@ -1,0 +1,80 @@
+<!-- <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+</head> -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta http-eqiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
+
+  <!-- {% if site.favicon %}<link rel="shortcut icon" href="{{ site.favicon }}">{% endif %} -->
+
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+
+  {% if page.is_post %}
+  {% endif %}
+
+  {% comment %}{% if template_css %}<link rel="stylesheet" href="{{ template_css }}" media="screen" />{% endif %}
+
+  <script src="{{ cdn_base_url }}assets/dist/dunked-scripts-template.min.js"></script>
+  {{ custom_css }}
+
+  {% if not is_preview %}
+  <script>this.top.location !== this.location && (this.top.location = this.location);</script>
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+
+  {% if analytics_code %}
+  _gaq.push(['_setAccount', '{{ analytics_code }}']);
+  _gaq.push(['_trackPageview']);
+  {% else %}
+  _gaq.push(['_setAccount', 'UA-6564188-11']);
+  _gaq.push(['_setDomainName', 'dunked.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  {% endif %}
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+    {% endif %}
+
+  {% if page.title %}<meta property="og:title" content="{{ page.title }}" />{% endif %}
+  {% if page.description %}<meta property="og:description" content="{{ page.description }}" />{% endif %}
+  <meta property="og:site_name" content="{{ site.title }}" />
+  {% if is_post %}
+    {% if project.thumb_url %}<meta property="og:image" content="{{ project.thumb_url }}" />{% endif %}
+  {% else %}
+    {% if logo %}<meta property="og:image" content="{{ logo }}" />{% endif %}
+  {% endif %}
+  {% if is_post %}
+    <meta property="og:url" content="{{ project.permalink }}" />
+  {% elsif is_page %}
+    <meta property="og:url" content="{{ page.permalink }}" />
+  {% elsif is_tag %}
+    {% for tag in tags %}
+      {% if tag.active %}<meta property="og:url" content="{{ tag.permalink }}" />{% endif %}
+    {% endfor %}
+  {% else %}
+    <meta property="og:url" content="{{ site_url }}" />
+  {% endif %}{% endcomment %}
+
+</head>

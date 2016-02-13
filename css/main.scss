@@ -1,0 +1,112 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+/*=================================*/
+/* Valiables
+/*=================================*/
+$accent_color: #3BCA96;
+$background_color: #FAFAFA;
+$body_text_color: #111111;
+$border_color: #EFEFEF;
+$footer_text_color: #A7A8AA;
+$footer_text_font: "Bitter", Arial, sans-serif;
+$footer_text_size: 12px;
+$form_border_color: #111111;
+$form_button_font: "Bitter", Arial, sans-serif;
+$form_button_size: 14px;
+$form_button_text_color: #FFFFFF;
+$form_input_background_color: #FAFAFA;
+$form_label_color: #111111;
+$form_label_font: "Bitter", Arial, sans-serif;
+$form_label_size: 14px;
+$image_captions_color: #4A4E53;
+$image_captions_font: "Bitter", Arial, sans-serif;
+$image_captions_size: 14px;
+$meta_color: #4A4E53;
+$meta_font: "Bitter", Arial, sans-serif;
+$meta_size: 14px;
+$navigation_color: #4A4E53;
+$navigation_font: "Bitter", Arial, sans-serif;
+$navigation_size: 14px;
+$page_titles_color: #33393F;
+$page_titles_font: "Bitter", Arial, sans-serif;
+$page_titles_size: 26px;
+$panel_background_color: #FFFFFF;
+$panel_text_color: #4A4E53;
+$panel_text_font: "Bitter", Arial, sans-serif;
+$panel_text_size: 14px;
+$sidebar_text_color: #4A4E53;
+$sidebar_text_font: "Bitter", Arial, sans-serif;
+$sidebar_text_size: 14px;
+$site_title_color: #33393F;
+$site_title_font: "Bitter", Arial, sans-serif;
+$site_title_size: 26px;
+$thumbnail_titles_color: #2E353C;
+$thumbnail_titles_font: "Bitter", Arial, sans-serif;
+$thumbnail_titles_size: 16px;
+
+// Font variables
+$font-name: "Bitter";
+$font-path-file-name: {{ baseurl }}/fonts/BitterRegular;
+
+// font_name font
+@font-face {
+  font-family: $font-name;
+  src: url($font-path-file-name+'.eot'); /* IE9 Compat Modes */
+  src: url($font-path-file-name+'.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url($font-path-file-name+'.woff') format('woff'), /* Pretty Modern Browsers */
+       url($font-path-file-name+'.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "slab"
+        // "base",
+        // "layout",
+        // "syntax-highlighting"
+;
