@@ -4,16 +4,35 @@
   {% include head.html %}
 
   <body>
+  <!-- <body class="{{ body_class }}"> -->
 
-    {% include header.html %}
+    <div id="wrapper"{% if site.data.slab.right_sidebar %} class="right-sidebar"{% endif %}>
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
+      {% include header.html %}
+
+      {% comment %}
+      <div class="page-content">
+        <div class="wrapper">
+          {{ content }}
+        </div>
       </div>
-    </div>
+      {% endcomment %}
 
-    {% include footer.html %}
+      <div id="content-wrapper">
+        <div id="content">
+          {{ content }}
+
+
+
+        <!--END #content-->
+        </div>
+      <!--END #content-wrapper-->
+      </div>
+      <div style="clear:both;"></div>
+
+      {% include footer.html %}
+
+    </div>
 
   </body>
 

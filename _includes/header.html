@@ -1,4 +1,4 @@
-<header class="site-header">
+{% comment %}<header class="site-header">
 
   <div class="wrapper">
 
@@ -24,4 +24,61 @@
 
   </div>
 
-</header>
+</header>{% endcomment %}
+
+<div id="sidebar"{% if site.data.slab.enable_fixed_sidebar %} class="fixed"{% endif %}>
+  <header class="site-title">
+    <a href="{{ site.baseurl }}">
+    {% if site.data.slab.logo or site.data.slab.logo_x2 %}
+      <div data-picture data-alt="{{ site.title }}">
+        {% if site.data.slab.logo %}<div data-src="{{ site.data.slab.logo }}"></div>{% endif %}
+        {% if site.data.slab.logo_x2 %}<div data-src="{{ site.data.slab.logo_x2 }}" data-width="{{ site.data.slab.logo_x2_width }}" data-media="(-webkit-min-device-pixel-ratio: 2),(min--moz-device-pixel-ratio: 2),(-o-min-device-pixel-ratio: 2/1),(min-device-pixel-ratio: 2),(min-resolution: 192dpi),(min-resolution: 2dppx)"></div>{% endif %}
+        {% if site.data.slab.logo_x2 and !site.data.slab.logo %}<div data-src="{{ site.data.slab.logo_x2 }}" data-width="{{ site.data.slab.logo_x2_width }}"></div>{% endif %}
+        <!--[if (lt IE 9) & (!IEMobile)]>
+          {% if site.data.slab.logo %}<div data-src="{{ site.data.slab.logo }}"></div>
+          {% elsif site.data.slab.logo_x2 %}<div data-src="{{ site.data.slab.logo_x2 }}" data-width="{{ site.data.slab.logo_x2_width }}"></div>{% endif %}
+        <![endif]-->
+        <noscript>
+          {% if site.data.slab.logo %}<img src="{{ site.data.slab.logo }}" alt="{{ site.title }}" />
+          {% elsif site.data.slab.logo_x2 %}<img src="{{ site.data.slab.logo_x2 }}" width="{{ site.data.slab.logo_x2_width }}" alt="{{ site.title }}" />{% endif %}
+        </noscript>
+      </div>
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+    </a>
+  </header>
+  {% if site.data.settings.description %}<p class="site-tagline">{{ site.data.settings.description }}</p>{% endif %}
+
+  {% if site.data.slab.show_navigation %}
+    <nav class="nav" role="navigation">
+      <ul id="pages-nav" class="list-pages">
+        {% for my_page in site.pages %}
+          {% if my_page.title %}
+            <li class='current-page' >
+              <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+
+  {% comment %}
+    <nav class="nav" role="navigation">
+      <ul id="pages-nav" class="list-pages">
+        <li class=""><a href="http://slabdemo.dunked.com/about">About</a></li>
+        <li class=""><a href="http://slabdemo.dunked.com/contact">Contact</a></li>
+        <li class=""><a href="https://twitter.com/DunkedHQ" data-link-type="page-redirect" target="_blank">Twitter</a></li>
+        <li class=""><a href="http://facebook.com/DunkedHQ" data-link-type="page-redirect" target="_blank">Facebook</a></li>
+      </ul>
+    </nav>
+  {% endcomment %}
+
+  {% endif %}
+
+  {% if site.data.settings.footer_text %}
+  <footer class="footer">
+    <p class="footer-text">{{ site.data.settings.footer_text }}</p>
+  </footer>
+  {% endif %}
+</div>

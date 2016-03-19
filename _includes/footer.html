@@ -1,4 +1,9 @@
-<footer class="site-footer">
+{% if site.data.settings.footer_text %}
+  <footer class="footer">
+    <p class="footer-text">{{ site.data.settings.footer_text }}</p>
+  </footer>
+{% endif %}
+{% comment %}<footer class="site-footer">
 
   <div class="wrapper">
 
@@ -35,4 +40,4 @@
 
   </div>
 
-</footer>
+</footer>{% endcomment %}

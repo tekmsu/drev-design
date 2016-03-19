@@ -1,0 +1,34 @@
+<div class="projects-feed">
+  <div class="projects-feed-inner clearfix">
+
+    {% for post in site.posts %}
+      <article id="project-{{ post.id }}" class="project">
+        <a href="{{ post.permalink }}" title="Permalink to {{ post.title|e }}">
+          {% if post.thumb_url %}
+            <div class="thumb">
+              <div data-picture data-alt="">
+                <div data-src="{{ post.thumb_url }}"></div>
+                {% if post.thumb_url_x2 %}<div data-src="{{ post.thumb_url_x2 }}" data-media="(-webkit-min-device-pixel-ratio: 2),(min--moz-device-pixel-ratio: 2),(-o-min-device-pixel-ratio: 2/1),(min-device-pixel-ratio: 2),(min-resolution: 192dpi),(min-resolution: 2dppx)"></div>{% endif %}
+                <!--[if (lt IE 9) & (!IEMobile)]>
+                  <div data-src="{{ post.thumb_url }}"></div>
+                <![endif]-->
+                <noscript>
+                  <img src="{{ post.thumb_url }}" alt="" />
+                </noscript>
+              </div>
+            </div>
+          {% else %}
+            <div class="thumb no-thumb"></div>
+          {% endif %}
+          <div class="overlay">
+            {% if site.data.slab.show_thumbnail_titles %}<h3 class="title">{{ post.title }}</h3>{% endif %}
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+
+  <!--END .projects-feed-inner-->
+  </div>
+<!--END .projects-feed-->
+</div>
+{# end home/project/tag check #}

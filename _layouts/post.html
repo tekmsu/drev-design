@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+{% comment %}<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
@@ -12,4 +12,24 @@ layout: default
     {{ content }}
   </div>
 
+</article>{% endcomment %}
+
+<article id="project-{{ page.id }}" class="project">
+  {% if site.data.slab.show_page_titles %}<h1 class="title">{{ page.title }}</h1>{% endif %}
+
+  {{ content }}
+
+  {% if site.data.slab.show_project_meta and (page.date_text or page.client or page.role or page.url or page.tags) %}
+    <footer class="project-meta clearfix">
+      {% if page.date_text %}<div>Date: <span class="date">{{ page.date_text }}</span></div>{% endif %}
+      {% if page.client %}<div>Client: <span class="client">{{ page.client }}</span></div>{% endif %}
+      {% if page.role %}<div>Role: <span class="role">{{ page.role }}</span></div>{% endif %}
+      {% if page.url %}<div>URL: <a href="{{ page.url_escaped }}" class="url" target="_blank">{{ page.pretty_url }}</a></div>{% endif %}
+      {% if page.tags %}<div>Tags: <span class="tags">{% for tag in page.tags %}<a href="{{ tag.permalink }}">{{ tag.name }}</a>{% if loop.last != true %}<span class="sep">, </span>{% endif %}{% endfor %}</span></div>{% endif %}
+    </footer>
+  {% endif %}
 </article>
+
+{% if site.data.slab.show_project_thumbs) %}
+  {% include list.html %}
+{% endif %}

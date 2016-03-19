@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="post">
+{% comment %}<article class="post">
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
@@ -11,4 +11,11 @@ layout: default
     {{ content }}
   </div>
 
+</article>{% endcomment %}
+
+<article id="page-{{ page.id }}" class="page">
+  {% if site.data.slab.show_page_titles %}
+    <h1 class="title">{{ page.title }}</h1>
+  {% endif %}
+  <div class="page-content">{{ content }}</div>
 </article>
