@@ -3,7 +3,11 @@
 
   {% include head.html %}
 
-  <body>
+  {% if is_post %}
+    <body class="is_project">
+  {% else %}
+    <body class="is_project">
+  {% endif %}
   <!-- <body class="{{ body_class }}"> -->
 
     <div id="wrapper"{% if site.data.slab.right_sidebar %} class="right-sidebar"{% endif %}>
