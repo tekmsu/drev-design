@@ -8,6 +8,8 @@
   {% else %}
     <body class="is_project">
   {% endif %}
+
+  {% cloudinary /sample.jpg alt="beautiful!" %}
   <!-- <body class="{{ body_class }}"> -->
 
     <div id="wrapper"{% if site.data.slab.right_sidebar %} class="right-sidebar"{% endif %}>
