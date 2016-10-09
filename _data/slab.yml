@@ -9,4 +9,4 @@ enable_lightbox: false
 logo: /assets/Logo.png
 logo_x2: /assets/Logo.png
 logo_x2_width: 234
-slab_js: /_javascripts/slab.min.js
+js: /_javascripts/slab.min.js
