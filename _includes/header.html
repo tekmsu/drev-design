@@ -31,16 +31,16 @@
     <a href="{{ site.baseurl }}">
     {% if site.data.slab.logo or site.data.slab.logo_x2 %}
       <div data-picture data-alt="{{ site.title }}">
-        {% if site.data.slab.logo %}<div data-src="{{ site.data.slab.logo }}"></div>{% endif %}
-        {% if site.data.slab.logo_x2 %}<div data-src="{{ site.data.slab.logo_x2 }}" data-width="{{ site.data.slab.logo_x2_width }}" data-media="(-webkit-min-device-pixel-ratio: 2),(min--moz-device-pixel-ratio: 2),(-o-min-device-pixel-ratio: 2/1),(min-device-pixel-ratio: 2),(min-resolution: 192dpi),(min-resolution: 2dppx)"></div>{% endif %}
-        {% if site.data.slab.logo_x2 and !site.data.slab.logo %}<div data-src="{{ site.data.slab.logo_x2 }}" data-width="{{ site.data.slab.logo_x2_width }}"></div>{% endif %}
+        {% if site.data.slab.logo %}<div data-src="{{ site.data.slab.logo | prepend: site.baseurl  }}"></div>{% endif %}
+        {% if site.data.slab.logo_x2 %}<div data-src="{{ site.data.slab.logo_x2 | prepend: site.baseurl  }}" data-width="{{ site.data.slab.logo_x2_width }}" data-media="(-webkit-min-device-pixel-ratio: 2),(min--moz-device-pixel-ratio: 2),(-o-min-device-pixel-ratio: 2/1),(min-device-pixel-ratio: 2),(min-resolution: 192dpi),(min-resolution: 2dppx)"></div>{% endif %}
+        {% if site.data.slab.logo_x2 and !site.data.slab.logo %}<div data-src="{{ site.data.slab.logo_x2 | prepend: site.baseurl  }}" data-width="{{ site.data.slab.logo_x2_width }}"></div>{% endif %}
         <!--[if (lt IE 9) & (!IEMobile)]>
           {% if site.data.slab.logo %}<div data-src="{{ site.data.slab.logo }}"></div>
           {% elsif site.data.slab.logo_x2 %}<div data-src="{{ site.data.slab.logo_x2 }}" data-width="{{ site.data.slab.logo_x2_width }}"></div>{% endif %}
         <![endif]-->
         <noscript>
-          {% if site.data.slab.logo %}<img src="{{ site.data.slab.logo }}" alt="{{ site.title }}" />
-          {% elsif site.data.slab.logo_x2 %}<img src="{{ site.data.slab.logo_x2 }}" width="{{ site.data.slab.logo_x2_width }}" alt="{{ site.title }}" />{% endif %}
+          {% if site.data.slab.logo %}<img src="{{ site.data.slab.logo | prepend: site.baseurl }}" alt="{{ site.title }}" />
+          {% elsif site.data.slab.logo_x2 %}<img src="{{ site.data.slab.logo_x2 | prepend: site.baseurl }}" width="{{ site.data.slab.logo_x2_width }}" alt="{{ site.title }}" />{% endif %}
         </noscript>
       </div>
     {% else %}
