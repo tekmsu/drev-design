@@ -14,4 +14,17 @@ images:
     content_url_x2: "/assets/photos/1/2/content_url_x2_image.jpg"
 ---
 
-{% cloudinary /assets/sample.jpg alt="beautiful!" %}
+<div class="project-description">
+  <p>{{ page.description }}</p>
+</div>
+
+{% if page.images %}
+  <div class="project-assets">
+    {% for image in page.images %}
+      {% include image.html
+        id=1
+        content_url=image.content_url
+        content_url_x2=image.content_url_x2 %}
+    {% endfor %}
+  </div>
+{% endif %}
