@@ -28,7 +28,7 @@
 
 <div id="sidebar"{% if site.data.slab.enable_fixed_sidebar %} class="fixed"{% endif %}>
   <header class="site-title">
-    <a href="{{ site.baseurl }}">
+    <a href="{{ site.url }}">
     {% if site.data.slab.logo or site.data.slab.logo_x2 %}
       <div data-picture data-alt="{{ site.title }}">
         {% if site.data.slab.logo %}<div data-src="{{ site.data.slab.logo | prepend: site.baseurl }}"></div>{% endif %}
@@ -55,7 +55,10 @@
       <ul id="pages-nav" class="list-pages">
         {% for my_page in site.pages %}
           {% if my_page.title %}
-            <li class='current-page' >
+            {% comment %}
+              <li class='current-page' >
+            {% endcomment %}
+            <li>
               <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
             </li>
           {% endif %}
